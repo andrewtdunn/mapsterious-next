@@ -12,6 +12,20 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.owner()]),
+
+  Location: a
+    .model({
+      name: a.string(),
+      lat: a.float(),
+      lng: a.float(),
+      shortName: a.string(),
+      thumbnail: a.string(),
+      type: a.string(),
+      active: a.string(),
+      owner: a.integer(),
+      yelpTitle: a.string(),
+    })
+    .authorization((allow) => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
